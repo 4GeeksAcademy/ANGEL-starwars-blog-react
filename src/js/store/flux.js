@@ -1,42 +1,60 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			people: [],
+			categories: [],
+			planet: [],
+			characterDetail: null,
+			film: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getCategories: () => {
+				fetch('https://www.swapi.tech/api')
+				.then(res => res.json())
+				.then(data => {
+					const categories = Object.keys(data.result)
+					setStore({categories: categories})
+				})
+				.catch(error => console.log(error))
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getPeople: () => {
+				fetch('https://www.swapi.tech/api/people')
+				.then(res => res.json())
+				.then(data => {
+					setStore({people: data.results})
+				})
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			getPlanet: () => {
+				fetch('https://www.swapi.tech/api/planets/')
+				.then(res => res.json())
+				.then(data => {
+					setStore({planet: data.results})
+				})
+			},
+			getPeopleDetail: async (id) => {
+				try {
+					setStore({ characterDetail: null })
+					const res = await fetch(`https://www.swapi.tech/api/people/${id}`)
+					const data = await res.json()
+					setStore({
+						characterDetail: {
+							...data.result.properties,
+							description: data.result.description,
+							uid: data.result.uid
+						}
+					})
+				} catch (error) {
+					console.log("Error fetching details:", error)
+				}
+			},
+			getFilm: async () => {
+				try{
+					const res = await fetch('https://www.swapi.tech/api/films/')
+					const data = await res.json()
+					setStore({film: data.result})
+				} catch (error) {
+					console.log("Error fetching details:", error)
+				}
 			}
 		}
 	};

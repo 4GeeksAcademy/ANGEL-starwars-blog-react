@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
-import injectContext from "./store/appContext";
+import { Home } from "./views/Home.jsx";
+import People from "./views/People.jsx";
+import Planet from "./views/Planet.jsx";
+import Details from "./views/Details.jsx";
+import Film from "./views/Film.jsx";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -17,21 +15,18 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
 					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/" element={<Home />}>
+							<Route path="/people" element={<People/>} />
+							<Route path="/planets" element={<Planet/>} />
+							<Route path="/details/:id" element={<Details/>}/>
+							<Route path="/films" element={<Film/>}/>
+						</Route>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-					<Footer />
-				</ScrollToTop>
 			</BrowserRouter>
-		</div>
 	);
 };
 
-export default injectContext(Layout);
+export default (Layout);
