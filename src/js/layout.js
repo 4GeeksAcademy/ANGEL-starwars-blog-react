@@ -6,6 +6,9 @@ import People from "./views/People.jsx";
 import Planet from "./views/Planet.jsx";
 import Details from "./views/Details.jsx";
 import Film from "./views/Film.jsx";
+import Species from "./views/Species.jsx";
+import StarShip from "./views/Starship.jsx";
+import Vehicle from "./views/Vehicle.jsx";
 
 
 //create your first component
@@ -18,10 +21,14 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 					<Routes>
 						<Route path="/" element={<Home />}>
+							<Route path="/films" element={<Film/>} />
 							<Route path="/people" element={<People/>} />
 							<Route path="/planets" element={<Planet/>} />
 							<Route path="/details/:id" element={<Details/>}/>
 							<Route path="/films" element={<Film/>}/>
+							<Route path="/species" element={<Species/>}/>
+							<Route path="/starships" element={<StarShip/>}/>
+							<Route path="/vehicles" element={<Vehicle/>}/>
 						</Route>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

@@ -2,24 +2,23 @@ import React, { useContext, useEffect } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
-
-export default function Planet() {
+export default function Vehicle() {
 
     const {store, actions} = useContext(Context)
 
 	useEffect(() => {
-		actions.getPlanet()
+		actions.getVehicle()
 	},[])
 
     return(
         <div className="cards">
-            {store.planet.map((item, index) => {
+            {store.vehicle.map((item, index) => {
                 return(
                     <Card
                     key={index}
                     name={item.name}
                     id={item.uid}
-                    url={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`}
+                    url={`https://starwars-visualguide.com/assets/img/vehicles/${item.uid}.jpg`}
                     />
                 )
             })}

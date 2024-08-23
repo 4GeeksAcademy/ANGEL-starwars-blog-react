@@ -17,6 +17,7 @@ export default function Film(){
                     <Card
                     key={index}
                     name={item.properties.title}
+                    id={item.uid}
                     url={`https://starwars-visualguide.com/assets/img/films/${item.uid}.jpg`}
                     />
                 )

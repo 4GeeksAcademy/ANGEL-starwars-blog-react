@@ -10,8 +10,8 @@ export default function Sidebar({children}){
     )
 }
 
-export function SidebarItem({category, onClick}){
+export function SidebarItem({category, onClick, active}){
     return(
-        <li onClick={onClick}>{category}</li>
+        <li className={active ? "li-active" : ""} onClick={onClick}>{category}</li>
     )
 }

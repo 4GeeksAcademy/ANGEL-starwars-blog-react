@@ -1,42 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 
-export default function DetailCard({character}) {
+export default function DetailCard({details}) {
+    const {store} = useContext(Context)
+
+    const categoryImg = store.categories[store.selectedCategory]
+
     return(
         <div className="detail-card">
             <div className="first-details">
                 <div>
-                    <img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`}/>
+                    <img src={`https://starwars-visualguide.com/assets/img/${categoryImg === "people" ? "characters" : categoryImg}/${details.uid}.jpg`}/>
                 </div>
-                <div>
-                    <h3>{character.name}</h3>
-                    <p>{character.description}</p>
+                <div className="first-details-text">
+                    <h3>{details.name}</h3>
+                    <p>{details.description}</p>
                 </div>
             </div>
             <div className="second-details">
-                <div>
+                {details.name && <div>
                     <h3>Name</h3>
-                    <p>{character.name}</p>
-                </div>
-                <div>
+                    <p>{details.name}</p>
+                </div>}
+                {details.name && <div>
                     <h3>Bird Year</h3>
-                    <p>{character.birth_year}</p>
-                </div>
-                <div>
+                    <p>{details.birth_year}</p>
+                </div>}
+                {details.name && <div>
                     <h3>Gender</h3>
-                    <p>{character.gender}</p>
-                </div>
-                <div>
+                    <p>{details.gender}</p>
+                </div>}
+                {details.name && <div>
                     <h3>Height</h3>
-                    <p>{character.height}</p>
-                </div>
-                <div>
+                    <p>{details.height}</p>
+                </div>}
+                {details.name && <div>
                     <h3>Skin Color</h3>
-                    <p>{character.skin_color}</p>
-                </div>
-                <div>
+                    <p>{details.skin_color}</p>
+                </div>}
+                {details.name && <div>
                     <h3>Eye color</h3>
-                    <p>{character.eye_color}</p>
-                </div>
+                    <p>{details.eye_color}</p>
+                </div>}
+                {details.producer && <div>
+                    <h3>Producer</h3>
+                    <p>{details.producer}</p>
+                </div>}
             </div>
         </div>
     )

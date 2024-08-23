@@ -11,6 +11,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #000000;
 }
 
 #app {
@@ -25,9 +26,16 @@ body {
     background-color: #ccc; 
     padding: 10px;
 }
-
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.drop-li{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
 .main {
-    flex: 1;
     display: flex;
 }
 
@@ -43,15 +51,25 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid black;
     width: 200px;
 }
 .aside ul{
     margin: 0;
     padding: 0;
     list-style: none;
+    width: 100%;
 }
-
+.aside li{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+.li-active{
+    border-left: 10px solid orange;
+}
 .aside-nav {
     display: flex;
     flex-direction: column;
@@ -65,24 +83,45 @@ body {
 }
 .cards{
     width: 100%;
-    height: 60%;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 20px;
+    grid-template-columns: repeat(6,1fr);
+    gap: 2rem;
 }
 .card-component{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
+    background-image: linear-gradient(to right, #292828 , #353434);
 }
 .card-img{
     width: 100%;
+    height: auto;
 }
 .card-img img{
     width: 100%;
 }
 .card-text{
-    padding: 2rem;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 23px;
+    flex-grow: 1;
+}
+.card-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+.card-buttons button{
+    background-color: transparent;
+    border: none;
+    color: #E81224;
+    font-size: 18px;
+    font-weight: bold;
+}
+.card-buttons button:hover{
+    color: #fd0015;
 }
 .detail-container{
     display: flex;
@@ -96,14 +135,27 @@ body {
     padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 .first-details{
     display: flex;
+    background-color: #282727;
+}
+.first-details-text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0 0 2rem;
 }
 .second-details{
     display: flex;
+    margin-top: 1rem;
 }
 .second-details div{
-    border: 1px solid lightgray;
     padding: 1rem;
+    width: 100%;
+    border-right: 1px solid gray;
+}
+.second-details div:last-child{
+    border-right: none;
 }
