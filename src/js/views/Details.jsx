@@ -24,7 +24,7 @@ export default function Details() {
         }else if(category === "starships"){
             actions.getStarShipDetail(id)
         }else if (category === "vehicles"){
-            actions.getVehicleDetail()
+            actions.getVehicleDetail(id)
         }
 
         return () => {

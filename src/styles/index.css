@@ -21,14 +21,16 @@ body {
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #ccc; 
-    padding: 10px;
+    width: 100%;
+    position: fixed;
+    background: black;
 }
 .logo{
     width: 100px;
     height: 100px;
+}
+.dropdown-menu{
+    left: -50px !important;
 }
 .drop-li{
     display: flex;
@@ -37,8 +39,8 @@ body {
 }
 .main {
     display: flex;
+    margin-top: 150px;
 }
-
 .section {
     flex: 1;
     display: flex;
@@ -52,6 +54,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 200px;
+    position: fixed;
 }
 .aside ul{
     margin: 0;
@@ -80,6 +83,8 @@ body {
     width: 100%;
     padding: 0 4rem;
     justify-content: center;
+    margin-bottom: 5rem;
+    margin-left: 200px;
 }
 .cards{
     width: 100%;

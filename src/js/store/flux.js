@@ -85,7 +85,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ ...getStore(),
 						detail: {
 							...data.result.properties,
-							description: data.result.description,
 							uid: data.result.uid
 						}
 					})
@@ -158,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const res = await fetch(`https://www.swapi.tech/api/vehicles/${id}`)
 					const data = await res.json()
 					setStore({...getStore(),
-						details: {
+						detail: {
 							...data.result.properties,
 							description: data.result.description,
 							uid: data.result.uid

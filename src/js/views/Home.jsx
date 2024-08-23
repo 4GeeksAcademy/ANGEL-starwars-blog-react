@@ -51,7 +51,7 @@ export function Home() {
 
 	return(
 		<>
-			<header>
+			<header className="header">
 				<Header/>
 			</header>
 			<main className="main">
