@@ -20,9 +20,15 @@ export function Home() {
 
 	const {store, actions} = useContext(Context)
 
+
 	useEffect(() => {
 		actions.getPeople()
 		actions.getCategories()
+		actions.getPlanet()
+		actions.getFilm()
+		actions.getSpecies()
+		actions.getStarShip()
+		actions.getVehicle()
 	},[])
 
 	useEffect(() => {

@@ -164,3 +164,25 @@ body {
 .second-details div:last-child{
     border-right: none;
 }
+.search-container input{
+    width: 400px;
+    padding: 0.5rem 1rem;
+    font-size: 17px;
+    color: black;
+    border: none;
+}
+.search-results{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    background-color: white;
+    width: 400px;
+}
+.search-results li{
+    padding: 0.5rem;
+}
+.search-results li:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}

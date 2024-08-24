@@ -4,11 +4,7 @@ import { Context } from "../store/appContext";
 
 export default function StarShip() {
 
-    const {store, actions} = useContext(Context)
-
-	useEffect(() => {
-		actions.getStarShip()
-	},[])
+    const {store} = useContext(Context)
 
     return(
         <div className="cards">

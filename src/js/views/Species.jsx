@@ -4,11 +4,7 @@ import { Card } from "../component/Card.jsx";
 
 export default function Species() {
 
-    const {store, actions} = useContext(Context)
-
-    useEffect(() => {
-        actions.getSpecies()
-    },[])
+    const {store} = useContext(Context)
 
     return(
         <div className="cards">

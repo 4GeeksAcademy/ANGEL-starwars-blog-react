@@ -4,11 +4,7 @@ import { Context } from "../store/appContext";
 
 export default function People() {
 
-    const {store, actions} = useContext(Context)
-
-	useEffect(() => {
-		actions.getPeople()
-	},[])
+    const {store} = useContext(Context)
 
     return(
         <div className="cards">

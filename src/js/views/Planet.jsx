@@ -2,14 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
-
 export default function Planet() {
 
-    const {store, actions} = useContext(Context)
-
-	useEffect(() => {
-		actions.getPlanet()
-	},[])
+    const {store} = useContext(Context)
 
     return(
         <div className="cards">

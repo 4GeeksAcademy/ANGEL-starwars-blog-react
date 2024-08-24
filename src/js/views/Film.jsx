@@ -4,11 +4,7 @@ import { Context } from "../store/appContext"
 
 export default function Film(){
 
-    const {store, actions} = useContext(Context)
-
-    useEffect(() => {
-        actions.getFilm()
-    },[])
+    const {store} = useContext(Context)
     
     return(
         <div className="cards">

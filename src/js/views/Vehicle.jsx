@@ -4,11 +4,9 @@ import { Context } from "../store/appContext";
 
 export default function Vehicle() {
 
-    const {store, actions} = useContext(Context)
+    const {store} = useContext(Context)
 
-	useEffect(() => {
-		actions.getVehicle()
-	},[])
+	
 
     return(
         <div className="cards">
