@@ -45,13 +45,16 @@ export function Home() {
         const categoryIndex = pathToCategoryMap[currentPath]
 
         if (categoryIndex !== undefined) {
+            const categoryName = store.categories[categoryIndex]
             actions.setSelectedCategory(categoryIndex)
+            actions.setSelectedCategoryName(categoryName)
         }
     }, [location.pathname])
 
 	const handleClickCategories = (category, index) => {
-		navigate(`/${category}`)
 		actions.setSelectedCategory(index)
+		actions.setSelectedCategoryName(category)	
+		navigate(`/${category}`)
 	}
 	
 

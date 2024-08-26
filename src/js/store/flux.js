@@ -10,7 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starship: [],
 			vehicle: [],
 			favorites: [],
-			selectedCategory: null
+			selectedCategory: null,
+			selectedCategoryName: null
 		},
 		actions: {
 			getCategories: () => {
@@ -181,8 +182,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const newFavorites = store.favorites.filter((_, i) => i !== index)
 				setStore({favorites: newFavorites})
 			},
-			setSelectedCategory: (category) =>{
-				setStore({selectedCategory: category})
+			setSelectedCategory: (index) =>{
+				setStore({selectedCategory: index})
+			},
+			setSelectedCategoryName: (name) => {
+				setStore({selectedCategoryName: name})
 			}
 		}
 	};

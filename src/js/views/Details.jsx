@@ -6,12 +6,13 @@ import { Context } from "../store/appContext.js";
 export default function Details() {
 
     const { id } = useParams()
+    
     const {store, actions} = useContext(Context)
 
 
     useEffect(() => {
 
-        const category = store.categories[store.selectedCategory]
+        const category = store.selectedCategoryName || store.categories[store.selectedCategory]
         console.log(category)
         if (category === "people") {
             actions.getPeopleDetail(id);
@@ -30,7 +31,7 @@ export default function Details() {
         return () => {
             actions.cleanDetail()
         }
-    },[store.selectedCategory, id])
+    },[store.selectedCategory, store.selectedCategoryName, id])
     
     return(
         <div className="detail-container">
